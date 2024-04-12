@@ -9,6 +9,14 @@ man - consultar **man**ual da ferramenta
 
 -h - menu de ajuda de opções 
 
+| - joga a saida de um comando para outro
+
+& - executa um comando em segundo plano
+
+&& - executa uma cadeia de comandos
+
+grep - filtro para entrada de textos
+
 ### Comandos de manipulação de diretório
 ls - **listar** diretório 
 
@@ -20,10 +28,14 @@ mv - **mover** / **renomear** arquivo
 
 cp - **copiar** arquivo
 
+mkdir - **criar** um diretório
+
+
 ### Programas interativos por linha de comando
 nano - editor de texto simples
 
 vi/vim - editor de texto avançado
+
 
 ### Utilitários de rede
 ping - **pinga** IPs locais ou na internet
@@ -38,7 +50,7 @@ iw - **configurações** de placas de rede (baixo nivel)
 
 ss - **vizualizador** de informações da rede
 
----
+<br>
 
 ## Processos e Daemons 
 
@@ -52,6 +64,8 @@ ss - **vizualizador** de informações da rede
 ## Gerenciamento de processos
 ps - **listar** processos 
 
+top - **monitor** de processos
+
 kill- eliminar processo por **PID**(id do processo)
 
 killall - eliminar processos pelo **nome**
@@ -61,15 +75,87 @@ service - interface de gerenciamento de daemons
 
 systemctl - interface de gerenciamento de daemons em sistemas que usam systemctl
 
----
+<br>
 
 # Comandos geralmente utilizados
 
 ## Utilitarios de rede 
->sudo ss -tulpn // 
 
-### Examples
-
+### Ver portas abertas 
 ```text
-gobuster dir -u https://mysite.com/path/to/folder -c 'session=123456' -t 50 -w common-files.txt -x .php,.html
+sudo ss -tulpn
+```
+
+### Ver informaões de rede
+```text
+nmcli
+```
+
+### Scan de redes próximas
+```text
+sudo iw dev [interface de rede] scan
+```
+
+## Gerenciamento de processos e daemons
+
+### Listar processos
+```text
+ps aux
+```
+
+### Procurar por um processo específico
+```text
+ps aux | grep [nome do processo]
+```
+
+### Eliminar um processo
+```text
+sudo killall [nome do processo]
+```
+
+### Ver status de um daemon
+```text
+sudo service [daemon] status
+```
+
+### Iniciar um daemon
+```text
+sudo service [daemon] start
+```
+
+### Desligar um daemon 
+```text
+sudo service [daemon] stop
+```
+
+## Manipulação de diretório
+
+### Excluir um arquivo
+```text
+rm [arquivo] 
+```
+
+### Excluir um diretório
+```text
+rm -rf [diretório]
+```
+
+### Renomear um arquivo
+```text
+mv [arquivo] [arquivo-renomeado]
+```
+
+### Lista um diretório por completo
+```text
+ls -lah
+```
+
+### Voltar um diretório
+```text
+cd ..
+```
+
+### Ir para o diretório Home do usuário
+```text
+cd ~
 ```
